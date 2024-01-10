@@ -1,3 +1,25 @@
-<p>users works!</p>
+
+<app-menu></app-menu>
+
+<div class="content">
+  <h1>All users</h1>
+</div>
+
+<table class="user-table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.firstname }}</td>
+      <td>{{ user.lastname }}</td>
+    </tr>
+  </tbody>
+</table>
 
 <app-footer></app-footer>

@@ -1,1 +1,11 @@
-<p>users-delete works!</p>
+<app-menu></app-menu>
+
+<div *ngIf="message.length > 0" class="error-messages">
+  <div *ngFor="let msg of message">{{ msg }}</div>
+</div>
+
+<a routerLink="/users">
+  <button>All users</button>
+</a>
+
+<app-footer></app-footer>

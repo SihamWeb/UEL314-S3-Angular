@@ -1,4 +1,6 @@
 
+
+
 <app-menu></app-menu>
 
 <div class="content">
@@ -11,6 +13,7 @@
       <th>User</th>
       <th>Firstname</th>
       <th>Lastname</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -18,8 +21,17 @@
       <td>{{ i + 1 }}</td>
       <td>{{ user.firstname }}</td>
       <td>{{ user.lastname }}</td>
+      <td>
+        <a routerLink="/users/{{ user.id }}">Show</a>
+        <a>Edit</a>
+        <a>Delete</a>
+      </td>
     </tr>
   </tbody>
 </table>
+
+<!--<div id="content">
+  <a routerLink="/users/create">New user</a>
+</div>-->
 
 <app-footer></app-footer>

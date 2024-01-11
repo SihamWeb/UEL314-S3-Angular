@@ -1,5 +1,3 @@
-
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -10,11 +8,11 @@ const APIEndpoint = environment.APIEndpoint;
 @Injectable({
   providedIn: 'root'
 })
-export class UsersGetByIdService {
+export class UsersUpdateService {
 
   constructor(private http: HttpClient) { }
 
-  getOneUser(id: string): Observable<any>{
-    return this.http.get(`${APIEndpoint}users/${id}`);
+  updateUser(id: string, updatedData: any): Observable<any>{
+    return this.http.patch<any>(`${APIEndpoint}users/${id}`, updatedData);
   }
 }

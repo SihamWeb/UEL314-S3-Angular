@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'users', component:UsersComponent },
   { path: 'users/:id', component:UsersGetByIdComponent },
   { path: 'users/create', component:UsersCreateComponent },
-  { path: 'users/:id/update', component:UsersUpdateComponent },
+  { path: 'updateuser/:id', component:UsersUpdateComponent },
   { path: 'users/:id/delete', component:UsersDeleteComponent }
 ];
 

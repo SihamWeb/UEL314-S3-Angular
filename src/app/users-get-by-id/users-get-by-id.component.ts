@@ -16,22 +16,16 @@ export class UsersGetByIdComponent implements OnInit {
   { }
 
   ngOnInit(): void {
-    console.log('ngOnInit called in UsersGetByIdComponent');
     this.getOneUser();
   }
 
   getOneUser(): void {
-    console.log('Function getOneUser() called.'); // Vérifiez si ce log s'affiche
     const id = this.route.snapshot.paramMap.get('id');
     if (id !== null) {
       this.usersGetByIdService.getOneUser(id).subscribe(
         user => {
-          console.log(user);
           this.user = user;
         },
-        error => {
-          console.error('Error fetching user:', error);
-        }
       );
     }
   } 

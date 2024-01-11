@@ -1,1 +1,25 @@
-<p>users-update works!</p>
+
+<app-menu></app-menu>
+
+<div id="content">
+  <h1>Update User n°{{ updatedData.id  }}</h1>
+</div>
+
+<div *ngIf="message.length > 0" class="error-messages">
+  <div *ngFor="let msg of message">{{ msg }}</div>
+</div>
+
+<form (ngSubmit)="updateUser()" #updateForm="ngForm">
+  <input [(ngModel)]="updatedData.firstname" name="firstname" placeholder="New First Name" required>
+  <input [(ngModel)]="updatedData.lastname" name="lastname" placeholder="New Last Name" required>
+  <button type="submit">Update User</button>
+</form>
+
+<a routerLink="/users">
+  <button>All users</button> 
+</a>
+<a routerLink="/users/{{ updatedData.id  }}">
+  <button>User n°{{ updatedData.id  }}</button>
+</a>
+
+<app-footer></app-footer>

@@ -21,7 +21,9 @@
       <td>
         <a routerLink="/users/{{ user.id }}">Show</a>
         <a routerLink="/updateuser/{{ user.id }}">Edit</a>
-        <a routerLink="/deleteuser/{{ user.id }}">Delete</a>
+        <!--<a routerLink="/deleteuser/{{ user.id }}">Delete</a>-->
+        <!--<app-users-delete [id]="user.id"></app-users-delete>-->
+        <button (click)="deleteUser(user.id)">Delete</button>
       </td>
     </tr>
   </tbody>

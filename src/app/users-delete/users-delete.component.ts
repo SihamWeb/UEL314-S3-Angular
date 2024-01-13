@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UsersDeleteService } from './users-delete.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./users-delete.component.scss']
 })
 export class UsersDeleteComponent implements OnInit {
-  id: string = '';
+  @Input() id: string = '';
   message: string [] = [];  
   
   constructor(

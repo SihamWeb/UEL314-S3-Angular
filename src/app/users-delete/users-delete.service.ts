@@ -17,7 +17,7 @@ export class UsersDeleteService {
   deleteUser(id: string): Observable<any>{
     return this.http.delete<any>(`${APIEndpoint}users/${id}`).pipe(
       catchError((error) => {
-        throw error; // Rethrow the error after logging.
+        throw error;
       })
     );
   }

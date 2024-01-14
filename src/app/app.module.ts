@@ -17,6 +17,7 @@ import { UsersService } from './users/users.service';
 import { UsersGetByIdService } from './users-get-by-id/users-get-by-id.service';
 import { UsersUpdateService } from './users-update/users-update.service';
 import { UsersDeleteService } from './users-delete/users-delete.service';
+import { UsersCreateService } from './users-create/users-create.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { UsersDeleteService } from './users-delete/users-delete.service';
     UsersService,
     UsersGetByIdService,
     UsersUpdateService,
-    UsersDeleteService
+    UsersDeleteService,
+    UsersCreateService
 ],
   bootstrap: [AppComponent]
 })

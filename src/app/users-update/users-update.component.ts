@@ -1,9 +1,6 @@
-
-
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { UsersUpdateService } from './users-update.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users-update',
@@ -27,6 +24,7 @@ export class UsersUpdateComponent implements OnInit {
     this.updateUser();
   }
 
+  
   updateUser(): void {
     if (this.id !== null) {
       this.updatedData.id = this.id;
@@ -52,5 +50,5 @@ export class UsersUpdateComponent implements OnInit {
     } else {
       this.message.push('Id manquant !');
     }
-  }
+  }         
 }

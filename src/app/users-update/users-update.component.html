@@ -10,8 +10,8 @@
 </div>
 
 <form (ngSubmit)="updateUser()" #updateForm="ngForm">
-  <input [(ngModel)]="updatedData.firstname" name="firstname" placeholder="New First Name" required>
-  <input [(ngModel)]="updatedData.lastname" name="lastname" placeholder="New Last Name" required>
+  <input [(ngModel)]="updatedData.firstname" name="firstname" placeholder="New firstname">
+  <input [(ngModel)]="updatedData.lastname" name="lastname" placeholder="New lastname">
   <button type="submit">Update User</button>
 </form>
 

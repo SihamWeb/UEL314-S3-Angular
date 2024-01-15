@@ -2,7 +2,7 @@
 <app-menu></app-menu>
 
 <div id="content">
-  <h1>Update User n°{{ updatedData.id  }}</h1>
+  <h1>Update User n°{{ user?.id }}</h1>
 </div>
 
 <div *ngIf="message.length > 0" class="error-messages">
@@ -10,16 +10,16 @@
 </div>
 
 <form (ngSubmit)="updateUser()" #updateForm="ngForm">
-  <input [(ngModel)]="updatedData.firstname" name="firstname" placeholder="New firstname">
-  <input [(ngModel)]="updatedData.lastname" name="lastname" placeholder="New lastname">
+  <input [(ngModel)]="updatedData.firstname" name="firstname" value="{{ user?.firstname }}" placeholder="{{ user?.firstname }}">
+  <input [(ngModel)]="updatedData.lastname" name="lastname" value="{{ user?.lastname }}" placeholder="{{ user?.lastname }}">
   <button type="submit">Update User</button>
 </form>
 
 <a routerLink="/users">
   <button>All users</button> 
 </a>
-<a routerLink="/users/{{ updatedData.id  }}">
-  <button>User n°{{ updatedData.id  }}</button>
+<a routerLink="/users/{{ user?.id }}">
+  <button>User n°{{ user?.id }}</button>
 </a>
 
 <app-footer></app-footer>

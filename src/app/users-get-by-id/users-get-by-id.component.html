@@ -16,10 +16,10 @@
     </tr>
   </thead>
   <tbody>
-    <td>{{ user.firstname }}</td>
-    <td>{{ user.lastname }}</td>
+    <td>{{ user?.firstname }}</td>
+    <td>{{ user?.lastname }}</td>
     <td>
-      <a routerLink="/updateuser/{{ user.id }}">Edit</a>
+      <a routerLink="/updateuser/{{ user?.id }}">Edit</a>
       <button (click)="deleteUser(user.id)">Delete</button>
     </td>
   </tbody>

@@ -11,7 +11,7 @@ import { finalize, catchError } from 'rxjs/operators';
   styleUrls: ['./users-get-by-id.component.scss']
 })
 export class UsersGetByIdComponent implements OnInit {
-  user: any;
+  user: any = {};
   id: string = '';  
   message: string [] = [];
 

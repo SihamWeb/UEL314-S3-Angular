@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersUpdateService } from './users-update.service';
+import { UsersGetByIdService } from '../users-get-by-id/users-get-by-id.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -16,27 +17,38 @@ export class UsersUpdateComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private usersUpdateService: UsersUpdateService,
+    private usersGetByIdService: UsersGetByIdService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id') || '';
-    this.updateUser();
+    this.getOneUser();
+  }
+
+  getOneUser(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id !== null) {
+      this.usersGetByIdService.getOneUser(id).subscribe(
+        user => {
+          this.user = user;
+        },
+      );
+    }
   }
 
   
   updateUser(): void {
-    if (this.id !== null) {
-      this.updatedData.id = this.id;
-      this.usersUpdateService.updateUser(this.id, this.updatedData).subscribe(
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id !== null) {
+      this.updatedData.id = id;
+      this.usersUpdateService.updateUser(id, this.updatedData).subscribe(
         (user) => {
           this.user = user;
-          this.router.navigate(['/users', this.id]);
+          this.router.navigate(['/users', id]);
         },
         (error) => {
-
           this.message = [];
-
+  
           if (!this.updatedData.firstname && !this.updatedData.lastname) {
             this.message.push('Saisissez au moins un nouveau firstname ou lastname !');
             return;
@@ -50,5 +62,6 @@ export class UsersUpdateComponent implements OnInit {
     } else {
       this.message.push('Id manquant !');
     }
-  }         
+  }
+          
 }

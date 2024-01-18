@@ -1,0 +1,58 @@
+Bon travail dans l'ensemble, avec juste un petit souci au niveau de la fonction de mise à jour.
+
+J'ai procédé à la mise à jour de cette fonction, et vous pouvez observer les modifications en comparant votre branche main avec ma branche correction-s3. 
+La procédure pour effectuer cette comparaison est décrite à la fin de ce document.
+
+Note : 18/20
+
++---------------------------------------------+------------+
+| Critère                                      | Points     |
++---------------------------------------------+------------+
+| Le projet se lance et fonctionne             | 5/5        |
++---------------------------------------------+------------+
+| Le code est propre et bien organisé          | 1,5/2,5    |
++---------------------------------------------+------------+
+| Le component "all users" est fonctionnel     | 2,5/2,5    |
++---------------------------------------------+------------+
+| Le component "one user" est fonctionnel      | 2,5/2,5    |
++---------------------------------------------+------------+
+| Le component "create user" est fonctionnel   | 2,5/2,5    |
++---------------------------------------------+------------+
+| Le component "update user" est fonctionnel   | 2,5/1,5    |
++---------------------------------------------+------------+
+| Le component "delete user" est fonctionnel   | 2,5/2,5    |
++---------------------------------------------+------------+
+| Total                                        | 18/20      |
++---------------------------------------------+------------+
+
+COMPARAISON BRANCHES GITHUB :
+
+1. **Accédez au dépôt GitHub concerné** : Ouvrez le dépôt où se trouve le fichier que vous souhaitez comparer.
+
+2. **Trouvez le fichier à comparer** : Naviguez dans le dépôt pour trouver le fichier dont vous souhaitez comparer les versions.
+
+3. **Sélectionnez les branches à comparer** : 
+   - Cliquez sur l'option "Branch" près du haut de la page pour ouvrir la liste des branches disponibles.
+   - Sélectionnez la première branche (par exemple, `main` ou `master`) dans laquelle se trouve la première version du fichier.
+
+4. **Ouvrez l'outil de comparaison** :
+   - Dans le dépôt, il y a un bouton "Compare" ou vous pouvez directement accéder à l'outil de comparaison en ajoutant `/compare` à la fin de l'URL du dépôt.
+
+5. **Configurer la comparaison** :
+   - Dans la page de comparaison, vous verrez deux champs déroulants pour les branches. Sélectionnez la branche de base (la branche avec laquelle vous voulez faire la comparaison) et la branche de comparaison (la branche que vous voulez comparer).
+   - Par exemple, si vous voulez comparer le code de la branche `feature` avec celui de la branche `main`, sélectionnez `main` dans le premier champ déroulant et `feature` dans le second.
+
+6. **Lancer la comparaison** : 
+   - Après avoir
+
+sélectionné les deux branches, GitHub affichera une liste de tous les commits qui diffèrent entre les deux branches. Si vous souhaitez comparer un fichier spécifique, faites défiler la liste jusqu'à ce que vous trouviez le fichier en question.
+   - Cliquez sur le fichier pour voir les différences. GitHub montrera les différences entre les deux versions du fichier, avec les modifications surlignées.
+
+7. **Utiliser l'URL pour la comparaison directe** : 
+   - Une autre méthode consiste à modifier l'URL pour comparer directement deux branches. Par exemple, si votre URL de dépôt est `https://github.com/user/repo`, vous pouvez ajouter `/compare/branch1...branch2` pour comparer `branch1` et `branch2`.
+   - Ainsi, l'URL complète serait `https://github.com/user/repo/compare/branch1...branch2`. Remplacez `user`, `repo`, `branch1`, et `branch2` par les noms réels de votre utilisateur, dépôt et branches.
+
+8. **Comparer localement avec Git** : 
+   - Si vous préférez faire la comparaison localement, vous pouvez cloner le dépôt et utiliser la commande Git `diff` pour comparer les branches. Par exemple, `git diff branch1..branch2 path/to/file`.
+
+Ces méthodes vous permettent de visualiser les différences entre deux versions d'un fichier dans deux branches différentes, soit directement sur GitHub, soit localement en utilisant Git.

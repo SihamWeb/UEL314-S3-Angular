@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import '_variables';
+
+body {
+  background: linear-gradient(to bottom, $primary-color, $second-color);
+  height: 100vh;
+  
+  h1 {
+    text-transform: uppercase;
+  }
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+}

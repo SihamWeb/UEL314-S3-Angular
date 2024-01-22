@@ -1,12 +1,27 @@
-@import '../../_variables.scss';
-
-  .text-container {
-    display: flex;
-    align-items: center;
+@import '../../variables';
+  
+    .text-container {
+      display: flex;
+      align-items: center;
     
-    p {
-      font-size: 16px;
+    p.logo {
+      font-size: 33px;
       color: $light-color;
+      overflow: hidden;
+      white-space: nowrap;
+      text-decoration-line: none;
+      text-transform: full-width;
+    }
+
+    span {
+      font-size: 18px;
+      display: inline-block;
+      opacity: 0;
+      background: linear-gradient(to bottom, $light-color, $second-light-color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: $without-background;
+      text-decoration-line: none;
+      text-transform: full-width;
     }
   }
 
@@ -19,44 +34,23 @@
   background-color: transparent;
   overflow: hidden;
   position: relative;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    transition: opacity 1s ease-in-out;
-  }
-
-  &::before {
-    background-color: $without-background;
-    opacity: 1;
-    z-index: -1;
-  }
-
-  &::after {
-    background: linear-gradient(to bottom, #0c6a79, #00DBFF);
-    opacity: 0;
-    z-index: -2;
-  }
-
+  
   .wave1,
   .wave3 {
     transition: transform 1s ease-in-out;
   }
 
-  &:hover::before {
-    opacity: 0;
+  svg.waves {
+    width: 60px;
+    height: 100px;
   }
 
-  &:hover::after {
-    opacity: 1;
+  path { 
+    stroke: $light-color;
+    stroke-width: 5;
   }
 
   &:hover {
-    border-radius: 50%;
 
     path {
       transition: d 1s ease-in-out !important;
@@ -78,8 +72,53 @@
   }
 
   .svg-container {
-    flex: 0 0 100%;
-    text-align: end;
+    svg {
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      opacity: 1;
+      transform: scale(1);
+
+      &.hidden {
+        opacity: 0;
+        transform: scale(0);
+      }  
+      
+      circle {
+        fill: $without-background;
+        stroke: $light-color;
+        stroke-width: 2;
+      }
+
+      line {
+        stroke: $light-color;
+        stroke-width: 2;
+      }
+
+      circle:last-child {
+        fill: $light-color;
+      }
+    }
+
+    line {
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      opacity: 1;
+      transform: scale(1);
+
+      &.hidden {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+
+    circle {
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      opacity: 1;
+      transform: scale(1);
+
+      &.hidden {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
   }
 
   @media screen and (max-width: 768px) {
@@ -113,4 +152,128 @@
       }
     }
   }
+}
+
+.menu {
+  height: 50vh;
+  display: flex;
+  align-items:center;
+  .nav-menu {
+    flex: 0 0 50%;
+    
+    nav {
+      ul {
+        li {
+          padding: 10px 0;
+          a {
+            text-transform: capitalize;
+            font-size: 2.5vw;
+            background-image: linear-gradient(to right, $second-dark-color, $second-dark-color);
+            background-size: 200% auto;
+            color: $light-color;
+            transition: all 1s ease-in-out;
+           
+            &.accueil:hover ~ .images-menu .image-accueil {
+              display: flex;
+            }    
+ 
+            &:hover {
+              background-position: right center;
+              background: linear-gradient(to right, $light-color, $second-light-color);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: $without-background;;
+            }
+          }
+        }  
+      }
+    }
+  }
+
+  .images-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 0 50%;
+    text-align: center;
+     
+      .text-waves {
+        position: relative;
+        flex: 0 0 100%;       
+
+        span {
+          color: $light-color;
+          font-size: 8vw;
+          position: absolute;
+          transform: translate(-50%, -50%);
+        
+          &:nth-child(1) {
+            color: $without-background;
+            -webkit-text-stroke: 2px $second-light-color;
+          }
+        
+          &:nth-child(2) {
+            color: $second-light-color;
+            animation: animate 4s ease-in-out infinite;
+          }
+        
+          @keyframes animate {
+            0%,
+            100% {
+              clip-path: polygon(
+                0% 45%,
+                16% 44%,
+                33% 50%,
+                54% 60%,
+                70% 61%,
+                84% 59%,
+                100% 52%,
+                100% 100%,
+                0% 100%
+              );
+            }
+
+            50% {
+              clip-path: polygon(
+                0% 60%,
+                15% 65%,
+                34% 66%,
+                51% 62%,
+                67% 50%,
+                84% 45%,
+                100% 46%,
+                100% 100%,
+                0% 100%
+              );
+            }
+          }
+        }
+      }
+  
+    .image-accueil, 
+    .image-list, 
+    .image-create,
+    .image-contact {
+      flex: 0 0 100%;
+      display: none;            
+
+      &.show {
+        display: flex;
+        
+      }      
+
+      .images-nav {
+        img {
+          border: 5px solid $primary-color;
+          border-radius: 25px;
+          width: $width-images-menu;
+        }
+      }   
+   
+      .images-2 {
+        z-index: 1;
+        margin-left: -30%;
+        margin-top: 15%;
+      }
+    }
+  }  
 }

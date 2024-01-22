@@ -1,32 +1,29 @@
-<app-menu></app-menu>
-
-<div class="content">
-  <h1>User n°{{ user.id }}</h1>
+<div class="container">
+  <app-menu></app-menu>
 </div>
 
+<div class="content h2">
+  <h2>Voyageur n°{{ user.id }}</h2>
+</div>
 
-<a routerLink="/createuser">New user</a>
+<div class="user-container">
+  <div class="user-card">
+    <div class="user-info">
+      <p><strong>Prénom:</strong> {{ user?.firstname }}</p>
+      <p><strong>Nom:</strong> {{ user?.lastname }}</p>
+    </div>
+    <div class="user-actions">
+      <a routerLink="/updateuser/{{ user?.id }}" class="action-button"><i class="fa-solid fa-pen"></i></a>
+      <button (click)="deleteUser(user.id)" class="action-button"><i class="fa-solid fa-trash"></i></button>
+    </div>
+  </div>
+</div>
 
-<table class="user-table">
-  <thead>
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Actions</th> 
-    </tr>
-  </thead>
-  <tbody>
-    <td>{{ user?.firstname }}</td>
-    <td>{{ user?.lastname }}</td>
-    <td>
-      <a routerLink="/updateuser/{{ user?.id }}">Edit</a>
-      <button (click)="deleteUser(user.id)">Delete</button>
-    </td>
-  </tbody>
-</table>
-
-<a routerLink="/users">
-  <button>All users</button>
-</a>
+<div class="center">
+  <div class="btn">
+    <a routerLink="/users">Qui sont en attente ?</a>
+    <a routerLink="/createuser">M'ajouter à la liste</a>
+  </div>
+</div>
 
 <app-footer></app-footer>

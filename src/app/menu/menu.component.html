@@ -1,13 +1,76 @@
-<div class="text-container">
-  <p>FLYWITHME</p>
-</div>
-<div class="icon-container">
-  <div class="svg-container">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="10">
-      <path class="wave1" d="M50 30 C75 10, 125 10, 150 30 S225 50, 250 30" stroke='#ffffff' stroke-width="10"/>
-      <path d="M50 50 C75 30, 125 30, 150 50 S225 70, 250 50" stroke='#ffffff' stroke-width="10"/>
-      <path class="wave3" d="M50 70 C75 50, 125 50, 150 70 S225 90, 250 70" stroke='#ffffff' stroke-width="10"/>
+<section class="icon-container">
+ <a  routerLink = "/" (click)="isLinkMenuClicked('/')"><div class="text-container">
+    <p class="logo">{{ titleBase }}</p>
+    <ng-container *ngIf="showTitlePartText">
+      <span *ngFor="let letter of titlePartText; let i = index" [@fadeInOut]="'in'" [style.transition-delay]="i * 0.1 + 's'">{{ letter }}</span>
+    </ng-container>
+  </div></a>
+  <div class="svg-container" (click)="toggleWaves()" (mouseenter)="showTitlePart()" (mouseleave)="hideTitlePart()">
+    <svg class="waves" *ngIf="!crossClicked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
+      <path class="wave1" d="M50 30 C75 10, 125 10, 150 30 S225 50, 250 30"></path>
+      <path class="wave2" d="M50 50 C75 30, 125 30, 150 50 S225 70, 250 50"></path>
+      <path class="wave3" d="M50 70 C75 50, 125 50, 150 70 S225 90, 250 70"></path>
+    </svg>
+    <svg *ngIf="isCircleVisible && crossClicked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+      <circle cx="25" cy="25" r="20"></circle>
+      <line x1="25" y1="5" x2="25" y2="45"></line>
+      <line x1="5" y1="25" x2="45" y2="25"></line>
+      <circle cx="25" cy="25" r="2"></circle>
     </svg>
   </div>
-</div>
-
+</section>
+<section *ngIf="isSplitScreen" class="menu">
+  <div class="nav-menu">
+    <nav>
+      <ul>
+        <li><a routerLink="/" class="accueil" title="Accueil" (click)="isLinkMenuClicked('/')" (mouseover)="isAccueilHovered = true" (mouseout)="isAccueilHovered = false">Salle d'accueil</a></li>
+        <li><a routerLink="/users" title="Liste des voyageurs" (click)="isLinkMenuClicked('/users')" (mouseover)="isListHovered = true" (mouseout)="isListHovered = false">Découvrez la liste d'attente !</a></li>
+        <li><a routerLink="/createuser" title="Ajoutez-vous à la liste" (click)="isLinkMenuClicked('/createuser')" (mouseover)="isCreateHovered = true" (mouseout)="isCreateHovered = false">Rejoignez-nous à bord !</a></li>
+        <li><a routerLink="/" title="Contactez-nous" (click)="isLinkMenuClicked('/')" (mouseover)="isContactHovered = true" (mouseout)="isContactHovered = false">Envoyez-nous un signal !</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="images-menu">
+    <div class="image-accueil" [class.show]="isAccueilHovered">
+      <div class="images-nav">
+        <img [src]="'https://cdn.pixabay.com/photo/2021/02/03/00/10/receptionists-5975962_960_720.jpg'" alt="Accueil image 1"/> 
+      </div>
+      <div class="images-2 images-nav">
+        <img [src]="'https://cdn.pixabay.com/photo/2017/07/15/21/06/reception-2507752_960_720.jpg'" title="Accueil image 2" /> 
+      </div> 
+    </div>
+    <div class="image-list" [class.show]="isListHovered">
+      <div class="images-nav">
+        <img [src]="'https://cdn.pixabay.com/photo/2016/09/12/23/24/galleon-1666084_960_720.jpg'" alt="Liste image 1" title="Liste image 1"/>
+      </div>
+      <div class="images-2 images-nav">
+        <img [src]="'https://cdn.pixabay.com/photo/2018/04/11/11/22/ferry-3310276_960_720.jpg'" alt="Liste image 2" title="Liste image 2"/>
+      </div>
+    </div>
+    <div class="image-create" [class.show]="isCreateHovered">
+      <div class="images-nav">
+        <img [src]="'https://cdn.pixabay.com/photo/2015/08/09/08/58/passport-881305_960_720.jpg'" alt="Add in the list image 1" title="Add in the list image 1"/>
+      </div>
+      <div class="images-2 images-nav">
+        <img [src]="'https://cdn.pixabay.com/photo/2012/12/27/19/41/ticket-booth-72935_960_720.jpg'" alt="Add in the list 2" title="Add in the list 2"/>
+      </div>
+    </div>
+    <div class="image-create" [class.show]="isContactHovered">
+      <div class="images-nav">
+        <img [src]="'https://cdn.pixabay.com/photo/2013/02/14/15/39/sky-81689_960_720.jpg'" alt="Contact image 1" title="Contact image 1"/>
+      </div>
+      <div class="images-2 images-nav">
+        <img [src]="'https://cdn.pixabay.com/photo/2018/10/28/15/01/horn-3779010_960_720.jpg'" alt="Contact image 2" title="Contact image 2"/>
+      </div>
+    </div>
+    <div class="text-waves" *ngIf="!isAccueilHovered && !isListHovered && !isCreateHovered && !isContactHovered"><!--Inspiraion https://alvarotrigo.com/blog/css-text-animations -->
+      <span>Besoin?</span>
+      <span>Besoin?</span>
+    </div>
+  </div>
+ <!-- <div class="rs">
+    <i class="fa-brands fa-instagram"></i>
+    <i class="fa-brands fa-linkedin-in"></i>
+    <i class="fa-brands fa-tiktok"></i>
+  </div>-->
+</section>

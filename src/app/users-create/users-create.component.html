@@ -1,23 +1,32 @@
+<div class="container">
+  <app-menu></app-menu>
+</div>
 
-
-<app-menu></app-menu>
-
-<div id="content">
-  <h1>Create a new user</h1>
+<div class="content h2">
+  <h2>Je rejoins l'aventure !</h2>
 </div>
 
 <div *ngIf="message.length > 0" class="error-messages">
   <div *ngFor="let msg of message">{{ msg }}</div>
 </div>
-
-<form (ngSubmit)="createUser()" #createForm="ngForm">
-  <input [(ngModel)]="newData.firstname" name="firstname" placeholder="New firstname" required>
-  <input [(ngModel)]="newData.lastname" name="lastname" placeholder="New lastname" required>
-  <button type="submit">Create User</button>
-</form>
-
-<a routerLink="/users">
-  <button>All users</button>
-</a>
+<div class="forms">
+  <form (ngSubmit)="createUser()" #createForm="ngForm">
+    <p>
+      Bonjour jeune aventurier/aventurière, alors tu souhaites rejoindre notre (longue) liste d'attente, si j'ai bien compris. Mais dis-moi comment tu t'appelles ? 
+      <input [(ngModel)]="newData.firstname" name="firstname" placeholder="Nouveau prénom" required>
+      Et quel est ton nom de famille ? 
+      <input [(ngModel)]="newData.lastname" name="lastname" placeholder="Nouveau nom" required>
+      Tu sais tu n'es pas le seul à avoir ce beau prénom ;) 
+      Sinon, tu es prêt/prête à rejoindre nos (très) belle aventures ? Alors il te reste juste à 
+      <button type="submit" title="Tu fais le bon choix !">Rejoindre la liste d'attente !</button>
+      puis on te recontacte dès que ton tour est arrivé ! ;)
+    </p>
+  </form>
+</div>
+<div class="center">
+  <div class="btn">
+    <a routerLink="/users">Qui sont en attente ?</a>
+  </div>
+</div>
 
 <app-footer></app-footer>
